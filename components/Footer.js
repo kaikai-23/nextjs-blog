@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css';
+import classes from './Footer.module.css';
 
 export function Footer() {
   return (
@@ -9,7 +9,7 @@ export function Footer() {
           rel="noopener noreferrer"
         >
           Thanks by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
+          <img src="/vercel.svg" alt="Vercel" className={classes.logo} />
         </a>
       </footer>
   )
