@@ -3,8 +3,14 @@ import styles from 'src/styles/Home.module.css';
 import { Footer } from 'src/components/Footer/Footer';
 import { Main } from 'src/components/Main/Main';
 import { Header } from 'src/components/Header/Header';
+import { useCallback } from 'react';
 
 export default function Home() {
+  const handleClick = useCallback((e) => {
+        console.log(e.target.href);
+        // alert("ボタンが押されました");
+        e.preventDefault();
+      },[]);
   return (
     <div className={styles.container}>
       <Head>
@@ -12,16 +18,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {/* <a 
+      <a 
       href = "/about"
-      // onClick={function (e) {
-      //   console.log(e.target.href);
-      //   e.preventDefault();
-      //   alert("ボタンが押されました");
-      // }}
+      onClick={handleClick}
       >
       ボタン
-      </a> */}
+      </a>
       <Main page="index"/>
 
       <Footer />
