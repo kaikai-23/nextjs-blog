@@ -3,7 +3,7 @@ import styles from 'src/styles/Home.module.css';
 import { Footer } from 'src/components/Footer/Footer';
 import { Main } from 'src/components/Main/Main';
 import { Header } from 'src/components/Header/Header';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 export default function Home() {
   const handleClick = useCallback((e) => {
@@ -11,6 +11,17 @@ export default function Home() {
         // alert("ボタンが押されました");
         e.preventDefault();
       },[]);
+
+  useEffect(() => {
+    //マウント時の処理
+    console.log("マウント");
+    document.body.style.backgroundColor = "lightblue";
+    //アンマウントでの処理
+    return () => {
+    console.log("アンマウント");
+    document.body.style.backgroundColor = "";
+    }
+  },[]);
   return (
     <div className={styles.container}>
       <Head>
@@ -24,9 +35,10 @@ export default function Home() {
       >
       ボタン
       </a>
-      <Main page="index"/>
 
+      <Main page="index"/>
       <Footer />
+
       {/* <footer>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
